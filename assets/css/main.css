@@ -1,0 +1,9 @@
+html,
+body,
+#__nuxt {
+  @apply h-full;
+}
+
+body {
+  @apply bg-white;
+}

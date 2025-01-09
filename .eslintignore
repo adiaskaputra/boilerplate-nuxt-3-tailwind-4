@@ -1,0 +1,12 @@
+node_modules
+*.log*
+.nuxt
+.nitro
+.cache
+.output
+.env
+dist
+.yarnrc.yml
+.gitlab-ci.yml
+cloudbuild.yaml
+/.yarn

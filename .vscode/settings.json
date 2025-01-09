@@ -1,0 +1,63 @@
+{
+  "editor.rulers": [80],
+  "css.customData": [".vscode/tailwind.json"],
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "eslint.enable": true,
+  "eslint.packageManager": "yarn",
+  "eslint.run": "onSave",
+  "eslint.lintTask.options": "--cache .",
+  "eslint.lintTask.enable": true,
+  "eslint.options": {
+    "overrideConfig": {
+      "rules": {
+        "@typescript-eslint/no-misused-promises": "off",
+        "@typescript-eslint/promise-function-async": "off",
+        "@typescript-eslint/no-floating-promises": "off"
+      }
+    }
+  },
+  "todohighlight.isEnable": true,
+  "todohighlight.isCaseSensitive": true,
+  "todohighlight.keywords": [
+    {
+      "text": "@ NOTE",
+      "color": "#fff",
+      "backgroundColor": "#3498db"
+    },
+    {
+      "text": "@ LOG",
+      "color": "#fff",
+      "backgroundColor": "#3498db"
+    },
+    {
+      "text": "@ FEAT",
+      "color": "#fff",
+      "backgroundColor": "#3498db"
+    },
+    {
+      "text": "@ REMOVE HARDCODE",
+      "color": "#fff",
+      "backgroundColor": "#e74c3c"
+    },
+    {
+      "text": "@ HARDCODE TESTING",
+      "color": "#fff",
+      "backgroundColor": "#e74c3c"
+    },
+    {
+      "text": "@ HARDCODE",
+      "color": "#fff",
+      "backgroundColor": "#e74c3c"
+    },
+    {
+      "text": "@ TODO",
+      "color": "#fff",
+      "backgroundColor": "#f1c40f"
+    },
+    {
+      "text": "@ NEXT FEATURE",
+      "color": "#fff",
+      "backgroundColor": "#27ae60"
+    }
+  ]
+}
