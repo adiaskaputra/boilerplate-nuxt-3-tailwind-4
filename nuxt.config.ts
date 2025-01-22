@@ -17,7 +17,14 @@ export default defineNuxtConfig({
     enabled: false,
   },
 
-  modules: [],
+  modules: [
+    [
+      '@pinia/nuxt',
+      {
+        autoImports: ['defineStore', 'storeToRefs'],
+      },
+    ],
+  ],
 
   imports: {
     dirs: ['composables/**'],
