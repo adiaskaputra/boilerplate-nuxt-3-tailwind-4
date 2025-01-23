@@ -1,6 +1,22 @@
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
+  modules: [
+    [
+      '@pinia/nuxt',
+      {
+        autoImports: ['defineStore', 'storeToRefs'],
+      },
+    ],
+    'nuxt-security',
+    '@nuxt/eslint',
+  ],
+  imports: {
+    dirs: ['composables/**'],
+  },
+  devtools: {
+    enabled: false,
+  },
   app: {
     head: {
       title: 'Boilerplate',
@@ -14,19 +30,22 @@ export default defineNuxtConfig({
       ],
     },
   },
-  devtools: {
-    enabled: false,
+  css: ['~/assets/css/main.css', '~/assets/css/transition.css'],
+  devServer: {
+    port: 8000,
   },
-  modules: [
-    [
-      '@pinia/nuxt',
-      {
-        autoImports: ['defineStore', 'storeToRefs'],
+  compatibilityDate: '2025-01-09',
+  vite: {
+    plugins: [tailwindcss()],
+  },
+  typescript: {
+    tsConfig: {
+      compilerOptions: {
+        strict: false,
+        strictNullChecks: true,
       },
-    ],
-    'nuxt-security',
-    '@nuxt/eslint'
-  ],
+    },
+  },
   eslint: {
     config: {
       stylistic: {
@@ -37,18 +56,6 @@ export default defineNuxtConfig({
         commaDangle: 'always-multiline',
         blockSpacing: true,
         arrowParens: true,
-      },
-    },
-  },
-  imports: {
-    dirs: ['composables/**'],
-  },
-  css: ['~/assets/css/main.css', '~/assets/css/transition.css'],
-  typescript: {
-    tsConfig: {
-      compilerOptions: {
-        strict: false,
-        strictNullChecks: true,
       },
     },
   },
@@ -63,25 +70,25 @@ export default defineNuxtConfig({
           // unsafe-inline    => Fallback value, will be ignored by almost any browser (level 2)
           // strict-dynamic   => Strict CSP via 'strict-dynamic', supported by most modern browsers (level 3)
           // nonce-{{nonce}}  => Enables CSP nonce support for scripts in SSR mode, supported by almost any browser (level 2)
-          "'self'",
-          "'unsafe-inline'",
-          "'strict-dynamic'",
-          "'nonce-{{nonce}}'",
+          '\'self\'',
+          '\'unsafe-inline\'',
+          '\'strict-dynamic\'',
+          '\'nonce-{{nonce}}\'',
         ],
         'style-src': [
           // self           => Enables loading of stylesheets hosted on same origin
           // unsafe-inline  => Recommended default for most Nuxt apps
-          "'self'",
+          '\'self\'',
           'fonts.googleapis.com',
-          "'unsafe-inline'",
+          '\'unsafe-inline\'',
         ],
         // img-src => Add relevant https://... sources if you load images from external sources
-        'base-uri': ["'none'"],
-        'img-src': ["'self'", 'data:'],
-        'font-src': ["'self'", 'fonts.gstatic.com'],
-        'object-src': ["'none'"],
-        'script-src-attr': ["'none'"],
-        'frame-ancestors': ["'self'"],
+        'base-uri': ['\'none\''],
+        'img-src': ['\'self\'', 'data:'],
+        'font-src': ['\'self\'', 'fonts.gstatic.com'],
+        'object-src': ['\'none\''],
+        'script-src-attr': ['\'none\''],
+        'frame-ancestors': ['\'self\''],
         'upgrade-insecure-requests': true,
       },
       permissionsPolicy: {
@@ -89,11 +96,4 @@ export default defineNuxtConfig({
       },
     },
   },
-  vite: {
-    plugins: [tailwindcss()],
-  },
-  devServer: {
-    port: 8000,
-  },
-  compatibilityDate: '2025-01-09',
 })
