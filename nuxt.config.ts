@@ -25,7 +25,21 @@ export default defineNuxtConfig({
       },
     ],
     'nuxt-security',
+    '@nuxt/eslint'
   ],
+  eslint: {
+    config: {
+      stylistic: {
+        indent: 2,
+        semi: false,
+        quotes: 'single',
+        quoteProps: 'consistent-as-needed',
+        commaDangle: 'always-multiline',
+        blockSpacing: true,
+        arrowParens: true,
+      },
+    },
+  },
   imports: {
     dirs: ['composables/**'],
   },
@@ -45,18 +59,25 @@ export default defineNuxtConfig({
     headers: {
       contentSecurityPolicy: {
         'script-src': [
-          "'self'", // Fallback value, will be ignored by most modern browsers (level 3)
-          "'unsafe-inline'", // Fallback value, will be ignored by almost any browser (level 2)
-          "'strict-dynamic'", // Strict CSP via 'strict-dynamic', supported by most modern browsers (level 3)
-          "'nonce-{{nonce}}'", // Enables CSP nonce support for scripts in SSR mode, supported by almost any browser (level 2)
+          // self             => Fallback value, will be ignored by most modern browsers (level 3)
+          // unsafe-inline    => Fallback value, will be ignored by almost any browser (level 2)
+          // strict-dynamic   => Strict CSP via 'strict-dynamic', supported by most modern browsers (level 3)
+          // nonce-{{nonce}}  => Enables CSP nonce support for scripts in SSR mode, supported by almost any browser (level 2)
+          "'self'",
+          "'unsafe-inline'",
+          "'strict-dynamic'",
+          "'nonce-{{nonce}}'",
         ],
         'style-src': [
-          "'self'", // Enables loading of stylesheets hosted on same origin
+          // self           => Enables loading of stylesheets hosted on same origin
+          // unsafe-inline  => Recommended default for most Nuxt apps
+          "'self'",
           'fonts.googleapis.com',
-          "'unsafe-inline'", // Recommended default for most Nuxt apps
+          "'unsafe-inline'",
         ],
+        // img-src => Add relevant https://... sources if you load images from external sources
         'base-uri': ["'none'"],
-        'img-src': ["'self'", 'data:'], // Add relevant https://... sources if you load images from external sources
+        'img-src': ["'self'", 'data:'],
         'font-src': ["'self'", 'fonts.gstatic.com'],
         'object-src': ["'none'"],
         'script-src-attr': ["'none'"],

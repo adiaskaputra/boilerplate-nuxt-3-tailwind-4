@@ -1,5 +1,5 @@
-function $clone(text: string | number | object | any[]) {
-  return JSON.parse(JSON.stringify(text))
+function $clone<T extends Record<string, unknown>>(obj: T): T {
+  return JSON.parse(JSON.stringify(obj)) as T
 }
 
 export { $clone }
