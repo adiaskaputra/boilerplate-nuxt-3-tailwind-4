@@ -16,7 +16,6 @@ module.exports = {
     'plugin:vue/vue3-recommended',
     '@nuxtjs/eslint-config-typescript',
     'plugin:prettier/recommended',
-    'plugin:tailwindcss/recommended',
   ],
   plugins: ['vue'],
   // https://eslint.vuejs.org/rules/

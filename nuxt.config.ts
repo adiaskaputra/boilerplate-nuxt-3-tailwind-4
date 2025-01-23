@@ -1,3 +1,5 @@
+import tailwindcss from '@tailwindcss/vite'
+
 export default defineNuxtConfig({
   app: {
     head: {
@@ -27,20 +29,7 @@ export default defineNuxtConfig({
   imports: {
     dirs: ['composables/**'],
   },
-  css: [
-    '~/assets/css/tailwind.css',
-    '~/assets/css/transition.css',
-    '~/assets/css/main.css',
-  ],
-  postcss: {
-    plugins: {
-      'postcss-hexrgba': {},
-      'tailwindcss/nesting': {},
-      tailwindcss: {},
-      'postcss-lighten-darken': {},
-      autoprefixer: {},
-    },
-  },
+  css: ['~/assets/css/main.css', '~/assets/css/transition.css'],
   typescript: {
     tsConfig: {
       compilerOptions: {
@@ -78,6 +67,9 @@ export default defineNuxtConfig({
         camera: ['self'],
       },
     },
+  },
+  vite: {
+    plugins: [tailwindcss()],
   },
   devServer: {
     port: 8000,
