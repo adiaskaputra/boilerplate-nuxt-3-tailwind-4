@@ -13,9 +13,7 @@
     "lintfix": "eslint . --fix"
   },
   "engines": {
-    "node": "22.x.x",
-    "npm": "please-use-yarn",
-    "pnpm": "please-use-yarn"
+    "node": "20.x.x"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.6.1",
